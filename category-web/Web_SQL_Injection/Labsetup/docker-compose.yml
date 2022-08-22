@@ -6,6 +6,8 @@ services:
         image: seed-image-www-sqli
         container_name: www-10.9.0.5
         tty: true
+        ports:
+        - "8080:80"
         networks:
             net-10.9.0.0:
                 ipv4_address: 10.9.0.5
@@ -21,6 +23,8 @@ services:
                 - SYS_NICE  # CAP_SYS_NICE (surprise an error message)
         volumes:
                 - ./mysql_data:/var/lib/mysql
+        ports:
+        - "3306:3306"
         networks:
             net-10.9.0.0:
                 ipv4_address: 10.9.0.6
